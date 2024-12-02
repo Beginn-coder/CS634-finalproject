@@ -13,8 +13,8 @@ from keras.layers import LSTM, Dense, Embedding, SpatialDropout1D
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import brier_score_loss
 
-# Load the sampled dataset (assuming you have already saved it earlier as 'sampled_dataset.csv')
-dataset_sampled = pd.read_csv('sampled_dataset.csv')
+# Load the sampled dataset
+dataset_sampled = pd.read_csv('Lynardakis_Nicholas_sampled_dataset.csv')
 
 # Store 'url' column separately if it exists
 if 'url' in dataset_sampled.columns:
@@ -51,7 +51,7 @@ def calculate_metrics(y_true, y_pred):
     FP = cm[0, 1]
     FN = cm[1, 0]
     
-     # Metrics using formulas
+    # Metrics using formulas
     accuracy = (TP + TN) / (TP + TN + FP + FN)
     sensitivity = TP / (TP + FN)  # True Positive Rate (Recall)
     specificity = TN / (TN + FP)  # True Negative Rate (Specificity)
